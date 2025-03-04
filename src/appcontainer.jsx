@@ -67,6 +67,7 @@ import Patientregisterstepfive from "./client/components/register/patientregiste
 //pharmacy
 import Pharmacy from "./client/components/Pharmacy/pharmacy";
 import pharmacydetail from "./client/components/Pharmacy/pharmactdetail";
+import CourseDetails from "./client/components/Course/coursedetail";
 import PharmacySearch from "./client/components/Pharmacy/pharmacysearch";
 import Cart from "./client/components/Pharmacy/cart";
 import Product from "./client/components/Pharmacy/product";
@@ -533,6 +534,11 @@ const AppContainer = function (props) {
               path="/Pharmacy/Pharmacy-details"
               exact
               component={pharmacydetail}
+            />
+            <Route
+              path="/course/:id"
+              exact
+              component={CourseDetails}
             />
             <Route
               path="/Pharmacy/pharmacy-search"

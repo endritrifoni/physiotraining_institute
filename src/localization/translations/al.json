@@ -1,0 +1,40 @@
+{
+  "header": {
+    "registerNow": "Regjistrohu tani",
+    "login": "Hyr",
+    "search": "Kërko",
+    "languages": {
+      "english": "Anglisht",
+      "albanian": "Shqip",
+      "italian": "Italisht"
+    }
+  },
+  "nav": {
+    "home": "Kryefaqja",
+    "aboutUs": "Rreth nesh",
+    "services": "Shërbimet",
+    "contactUs": "Kontakt",
+    "coursesAndTrainings": "Kurse & Trajnime",
+    "certifications": "Certifikime",
+    "blog": "Blog"
+  },
+  "main": {
+    "title": "Përmirëso profesionalizmin tënd!",
+    "description": "Zbuloni programet më të mira të trajnimit për fizioterapistët dhe profesionistët e kujdesit shëndetësor.",
+    "viewCourses": "Shiko kurset",
+    "registerNow": "Regjistrohu tani"
+  },
+  "footer": {
+  },
+  "register": {
+    "title": "Regjistrohu",
+    "name": "Emri",
+    "number": "Numri i celularit",
+    "email": "Email",
+    "password": "Fjalëkalimi",
+    "confirmPassword": "Konfirmo fjalëkalimin",
+    "alreadyHaveAnAccount": "Keni një llogari?",
+    "login": "Hyr",
+    "course": "Kursi"
+  }
+}

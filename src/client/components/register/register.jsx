@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import loginBanner from "../../assets/images/login-banner.png";
 import Header from "../header";
 import Footer from "../footer";
+import useTranslation from "../../../localization/useTranslation";
+import Home10Header from "../home/home-10/header";
+import Home10Footer from "../home/home-10/footer";
 
 const Register = (props) => {
+  const { t } = useTranslation();
   // const history = useHistory();
 
   useEffect(() => {
@@ -16,7 +20,7 @@ const Register = (props) => {
 
   return (
     <>
-      <Header {...props} />
+      <Home10Header />
 
       <>
         {/* Page Content */}
@@ -37,10 +41,7 @@ const Register = (props) => {
                     <div className="col-md-12 col-lg-6 login-right">
                       <div className="login-header">
                         <h3>
-                          Patient Register{" "}
-                          <Link to="/doctor/doctor-register">
-                            Are you a Doctor?
-                          </Link>
+                          {t('register.title')}{" "}
                         </h3>
                       </div>
                       {/* Register Form */}
@@ -50,34 +51,41 @@ const Register = (props) => {
                             type="text"
                             className="form-control floating"
                           />
-                          <label className="focus-label">Name</label>
+                          <label className="focus-label">{t('register.name')}*</label>
                         </div>
                         <div className="form-group form-focus">
                           <input
                             type="text"
                             className="form-control floating"
                           />
-                          <label className="focus-label">Mobile Number</label>
+                          <label className="focus-label">{t('register.email')}*</label>
+                        </div>
+                        <div className="form-group form-focus">
+                          <input
+                            type="text"
+                            className="form-control floating"
+                          />
+                          <label className="focus-label">{t('register.number')}*</label>
                         </div>
                         <div className="form-group form-focus">
                           <input
                             type="password"
                             className="form-control floating"
                           />
-                          <label className="focus-label">Create Password</label>
+                          <label className="focus-label">{t('register.course')}*</label>
                         </div>
-                        <div className="text-end">
+                        {/* <div className="text-end">
                           <Link className="forgot-link" to="/login">
                             Already have an account?
                           </Link>
-                        </div>
+                        </div> */}
                         <Link to="/patient/patientregisterstep-1"
                           className="btn btn-primary w-100 btn-lg login-btn"
                           type="submit"
                         >
-                          Signup
+                          {t('register.title')}
                         </Link>
-                        <div className="login-or">
+                        {/* <div className="login-or">
                           <span className="or-line" />
                           <span className="span-or">or</span>
                         </div>
@@ -92,7 +100,7 @@ const Register = (props) => {
                               <i className="fab fa-google me-1" /> Login
                             </Link>
                           </div>
-                        </div>
+                        </div> */}
                       </form>
                       {/* /Register Form */}
                     </div>
@@ -106,7 +114,7 @@ const Register = (props) => {
         {/* /Page Content */}
       </>
 
-      <Footer {...props} />
+      <Home10Footer />
     </>
   );
 };

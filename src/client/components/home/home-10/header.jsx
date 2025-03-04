@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../../../core/img/imagewithbasebath";
 import NavLinks from "../../nav";
+import useTranslation from "../../../../localization/useTranslation";
 
 const Home10Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [toggleSearch, settoggleSearch] = useState(false);
+  const { t, changeLanguage, getCurrentLanguage } = useTranslation();
+  const [currentLang, setCurrentLang] = useState(getCurrentLanguage());
+  
   const onHandleMobileMenu = () => {
     var root = document.getElementsByTagName("html")[0];
     root.classList.add("menu-opened");
@@ -24,6 +28,35 @@ const Home10Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Function to handle language change
+  const handleLanguageChange = useCallback((lang) => {
+    changeLanguage(lang);
+    setCurrentLang(lang);
+  }, [changeLanguage]);
+
+  const renderLanguageDropdown = useCallback(() => {
+    const languages = [
+      { code: 'en', label: t('header.languages.english'), flag: 'us' },
+      { code: 'al', label: t('header.languages.albanian'), flag: 'al' },
+      { code: 'it', label: t('header.languages.italian'), flag: 'it' }
+    ];
+
+    return languages
+      .filter(lang => lang.code !== currentLang)
+      .map(lang => (
+        <Link 
+          key={lang.code} 
+          to="#" 
+          className="dropdown-item" 
+          onClick={() => handleLanguageChange(lang.code)}
+        >
+          <ImageWithBasePath src={`assets/img/flags/${lang.flag}.png`} alt={`${lang.label} Flag`} />
+          {lang.label}
+        </Link>
+      ));
+  }, [currentLang, handleLanguageChange, t]);
+
   return (
     <div>
       {/* Header */}
@@ -73,23 +106,19 @@ const Home10Header = () => {
                       data-bs-toggle="dropdown"
                       to="#"
                     >
-                      <ImageWithBasePath src="assets/img/flags/us.png" alt="Img" />
-                      English
+                      <ImageWithBasePath 
+                        src={`assets/img/flags/${currentLang === 'en' ? 'us' : currentLang}.png`} 
+                        alt="Language Flag" 
+                      />
+                      {t(`header.languages.${currentLang === 'en' ? 'english' : currentLang === 'it' ? 'italian' : 'albanian'}`)}
                     </Link>
                     <div className="dropdown-menu dropdown-menu-end">
-                      <Link to="#" className="dropdown-item">
-                        <ImageWithBasePath src="assets/img/flags/al.png" alt="Img" />
-                        Albanian
-                      </Link>
-                      <Link to="#" className="dropdown-item">
-                        <ImageWithBasePath src="assets/img/flags/it.png" alt="Img" />
-                        Italian
-                      </Link>
+                      {renderLanguageDropdown()}
                     </div>
                   </div>
                 </li>
                 <li className="login-link">
-                  <Link to="/register">Register now</Link>
+                  <Link to="/register">{t('header.registerNow')}</Link>
                 </li>
               </ul>
             </div>
@@ -121,7 +150,7 @@ const Home10Header = () => {
                   className="btn btn-primary reg-btn reg-btn-fourteen"
                 >
                   <i className="fa-solid fa-user me-2" />
-                  Register now
+                  {t('header.registerNow')}
                 </Link>
               </li>
             </ul>

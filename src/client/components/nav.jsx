@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useTranslation from "../../localization/useTranslation";
 import ImageWithBasePath from "../../core/img/imagewithbasebath";
 
 const NavLinks = () => {
+  const { t } = useTranslation();
   const [menu, setMenu] = useState(false);
   const [isSideMenu, setSideMenu] = useState("");
   const [isSideDoctor, setSideDoctor] = useState("");
@@ -18,7 +20,7 @@ const NavLinks = () => {
   let pathnames = window.location.pathname;
 
   const url = pathnames.split("/").slice(0, -1).join("/");
-  console.log(pathnames)
+  // console.log(pathnames)
   const onhandleCloseMenu = () => {
     var root = document.getElementsByTagName("html")[0];
     root.classList.remove("menu-opened");
@@ -68,14 +70,14 @@ const NavLinks = () => {
           </ul>
         </li> */}
         
-        <li><Link to="#">Services</Link></li>
-        <li><Link to="#">Courses & Trainings</Link></li>
-        <li><Link to="#">Certifications</Link></li>
-        <li><Link to="/blog/blog-list">Blog</Link></li>
-        <li><Link to="/pages/contactus">Contact Us</Link></li>
-        <li><Link to="/pages/aboutus">About Us</Link></li>
+        <li><Link to="#">{t('nav.services')}</Link></li>
+        <li><Link to="#">{t('nav.coursesAndTrainings')}</Link></li>
+        <li><Link to="#">{t('nav.certifications')}</Link></li>
+        <li><Link to="/blog/blog-list">{t('nav.blog')}</Link></li>
+        <li><Link to="/pages/contactus">{t('nav.contactUs')}</Link></li>
+        <li><Link to="/pages/aboutus">{t('nav.aboutUs')}</Link></li>
         <li className="login-link">
-          <Link to="/login">Login / Signup</Link>
+          <Link to="/register">{t('header.registerNow')}</Link>
         </li>
       </ul>
     </>

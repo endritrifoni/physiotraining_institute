@@ -1,0 +1,41 @@
+{
+  "header": {
+    "registerNow": "Register now",
+    "login": "Login",
+    "search": "Search",
+    "languages": {
+      "english": "English",
+      "albanian": "Albanian",
+      "italian": "Italian"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About us",
+    "services": "Services",
+    "contactUs": "Contact us",
+    "coursesAndTrainings": "Courses & Trainings",
+    "certifications": "Certifications",
+    "blog": "Blog"
+  },
+  "main": {
+    "title": "Enhance Your Professionalism!",
+    "description": "Discover the best training programs for physiotherapists and healthcare professionals.",
+    "viewCourses": "View Courses",
+    "registerNow": "Register Now"
+  },
+  "register": {
+    "title": "Register",
+    "name": "Name",
+    "number": "Mobile Number",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "login": "Login",
+    "course": "Course"
+  },
+  "footer": {
+
+  }
+}

@@ -317,9 +317,15 @@
     color: $__smokey-gray;
 	font-size: $__font__size__14;
     margin-bottom: 25px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
     a {
 	    color: $__primarycolor;
 	    font-weight: $__medium;
+	}
+	i {
+		width: 18px;
 	}
 }
 .doc-speciality {

@@ -1,0 +1,40 @@
+{
+  "header": {
+    "registerNow": "Registrati ora",
+    "login": "Accedi",
+    "search": "Cerca",
+    "languages": {
+      "english": "Inglese",
+      "albanian": "Albanese",
+      "italian": "Italiano"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "aboutUs": "Chi siamo noi",
+    "services": "Servizi",
+    "contactUs": "Contatti",
+    "coursesAndTrainings": "Corsi & Formazioni",
+    "certifications": "Certificazioni",
+    "blog": "Blog"
+  },
+  "main": {
+    "title": "Migliora la tua professionalità!",
+    "description": "Scopri i migliori programmi di formazione per fisioterapisti e professionisti sanitari.",
+    "viewCourses": "Visualizza i corsi",
+    "registerNow": "Registrati ora"
+  },
+  "footer": {
+  },
+  "register": {
+    "title": "Registrati",
+    "name": "Nome",
+    "number": "Numero di cellulare",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Conferma password",
+    "alreadyHaveAnAccount": "Hai già un account?",
+    "login": "Accedi",
+    "course": "Corso"
+  }
+}

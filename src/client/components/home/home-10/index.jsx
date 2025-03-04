@@ -12,9 +12,11 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import useTranslation from "../../../../localization/useTranslation";
+import { mockCourses } from "../../../services/mock-data";
 
 const Home10 = () => {
-
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const videoUrl = 'https://www.youtube.com/embed/VXjGBqpbra0';
 
@@ -170,17 +172,17 @@ const Home10 = () => {
                 className="banner-content banner-content-fifteen aos"
                 data-aos="fade-up"
               >
-                <h1>Enhance Your Professionalism!</h1>
-                <h2>Discover the best training programs for physiotherapists and healthcare professionals.</h2>
+                <h1>{t('main.title')}</h1>
+                <h2>{t('main.description')}</h2>
                 <div className="banner-btns-fifteen">
                   <Link to="/patient/search-doctor2" className="btn btn-primary me-2">
-                    View courses
+                    {t('main.viewCourses')}
                   </Link>
                   <Link
                     to="/register"
                     className="btn btn-primary btns-primarytwo"
                   >
-                    Register now
+                    {t('main.registerNow')}
                   </Link>
                 </div>
                 <div className="d-sm-flex align-items-center">
@@ -255,6 +257,65 @@ const Home10 = () => {
         </div>
       </section>
       {/* /Home Banner */}
+      {/* courses section */}
+      <div className="doctors-section-fifteen">
+        <div className="doctor-fifteen-icon">
+          <ImageWithBasePath src="assets/img/fifteen-bg-icon-2.png" alt="Icon" />
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="section-header-fifteen text-center">
+                <h2>
+                  Our <span>Courses & Trainings</span>
+                </h2>
+                <p>Professional Development for Physiotherapists</p>
+              </div>
+            </div>
+          </div>
+          <OwlCarousel 
+          {...ourDoctor}
+            className="owl-carousel doctor-slider-fifteen owl-theme aos"
+            data-aos="fade-up"
+          >
+            {mockCourses.map((course) => (
+              <div key={course.id} className="item item-fifteen">
+                <div className="doctor-profile-widget">
+                  <div className="doc-pro-img">
+                    <Link to={`/course/${course.id}`}>
+                      <div className="doctor-profile-img">
+                        <ImageWithBasePath
+                          src="assets/img/doctors/doctor-28.jpg"
+                          className="img-fluid"
+                          alt={course.name}
+                        />
+                      </div>
+                    </Link>
+                    <div className="item-info">
+                      <h6>{course.startDate} | {course.location}</h6>
+                    </div>
+                  </div>
+                  <div className="doc-content-fift">
+                    <Link to={`/course/${course.id}`}>{course.name}</Link>
+                    <p>{course.professor}</p>
+                    <div className="rate-fifteen">
+                      <div className="rate-four">
+                        <i className="fa-regular fa-clock me-2" />
+                        <span>{course.sessions[0].start_time}-{course.sessions[0].end_time}</span>
+                      </div>
+                      <ul>
+                        {course.sessions[0].days.map((day, index) => (
+                          <li key={index}>{day}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </OwlCarousel>
+        </div>
+      </div>
       {/* services Section */}
       <section className="services-section-fifteen">
         <div className="service-bg-icon">
@@ -460,187 +521,6 @@ const Home10 = () => {
         </div>
       </div>
       {/* /Patients Section */}
-      {/* Doctors section */}
-      <div className="doctors-section-fifteen">
-        <div className="doctor-fifteen-icon">
-          <ImageWithBasePath src="assets/img/fifteen-bg-icon-2.png" alt="Icon" />
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="section-header-fifteen text-center">
-                <h2>
-                  Our <span>Expert Doctors</span>
-                </h2>
-                <p>The Great Place Of ENT Hospital Center</p>
-              </div>
-            </div>
-          </div>
-          <OwlCarousel 
-          {...ourDoctor}
-            className="owl-carousel doctor-slider-fifteen owl-theme aos"
-            data-aos="fade-up"
-          >
-            <div className="item item-fifteen">
-              <div className="doctor-profile-widget">
-                <div className="doc-pro-img">
-                  <Link to="/patient/doctor-profile">
-                    <div className="doctor-profile-img">
-                      <ImageWithBasePath
-                        src="assets/img/doctors/doctor-28.jpg"
-                        className="img-fluid"
-                        alt="Icon"
-                      />
-                    </div>
-                  </Link>
-                  <div className="doctor-amount">
-                    <Link to="#" className="fav-icon">
-                      <i className="feather icon-heart" />
-                    </Link>
-                  </div>
-                  <div className="item-info">
-                    <h6>15+ Years Experience</h6>
-                  </div>
-                </div>
-                <div className="doc-content-fift">
-                  <Link to="/patient/doctor-profile">Dr. Brandon Nicholas</Link>
-                  <p>MBBS, MS - ENT</p>
-                  <div className="rate-fifteen">
-                    <div className="rate-four">
-                      <i className="fa-regular fa-star me-2" />
-                      <span>4.9</span>
-                    </div>
-                    <ul>
-                      <li>Mo</li>
-                      <li>Tu</li>
-                      <li>We</li>
-                      <li>Th</li>
-                      <li>Fri</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item item-fifteen">
-              <div className="doctor-profile-widget">
-                <div className="doc-pro-img">
-                  <Link to="/patient/doctor-profile">
-                    <div className="doctor-profile-img">
-                      <ImageWithBasePath
-                        src="assets/img/doctors/doctor-29.jpg"
-                        className="img-fluid"
-                        alt="Doctor"
-                      />
-                    </div>
-                  </Link>
-                  <div className="doctor-amount">
-                    <Link to="#" className="fav-icon">
-                      <i className="feather icon-heart" />
-                    </Link>
-                  </div>
-                  <div className="item-info">
-                    <h6>5+ Years Experience</h6>
-                  </div>
-                </div>
-                <div className="doc-content-fift">
-                  <Link to="/patient/doctor-profile">Dr. Katherine Victoria</Link>
-                  <p>MBBS, MS - ENT</p>
-                  <div className="rate-fifteen">
-                    <div className="rate-four">
-                      <i className="fa-regular fa-star me-2" />
-                      <span>4.6</span>
-                    </div>
-                    <ul>
-                      <li>We</li>
-                      <li>Th</li>
-                      <li>Fri</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item item-fifteen">
-              <div className="doctor-profile-widget">
-                <div className="doc-pro-img">
-                  <Link to="/patient/doctor-profile">
-                    <div className="doctor-profile-img">
-                      <ImageWithBasePath
-                        src="assets/img/doctors/doctor-11.jpg"
-                        className="img-fluid"
-                        alt="Doctor"
-                      />
-                    </div>
-                  </Link>
-                  <div className="doctor-amount">
-                    <Link to="#" className="fav-icon">
-                      <i className="feather icon-heart" />
-                    </Link>
-                  </div>
-                  <div className="item-info">
-                    <h6>7+ Years Experience</h6>
-                  </div>
-                </div>
-                <div className="doc-content-fift">
-                  <Link to="/patient/doctor-profile">Dr. Lisa Madeleine</Link>
-                  <p>MBBS, MS - ENT</p>
-                  <div className="rate-fifteen">
-                    <div className="rate-four">
-                      <i className="fa-regular fa-star me-2" />
-                      <span>4.4</span>
-                    </div>
-                    <ul>
-                      <li>Mo</li>
-                      <li>Tu</li>
-                      <li>Th</li>
-                      <li>Fri</li>
-                      <li>Sat</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item item-fifteen">
-              <div className="doctor-profile-widget">
-                <div className="doc-pro-img">
-                  <Link to="/patient/doctor-profile">
-                    <div className="doctor-profile-img">
-                      <ImageWithBasePath
-                        src="assets/img/doctors/doctor-09.jpg"
-                        className="img-fluid"
-                        alt="Doctor"
-                      />
-                    </div>
-                  </Link>
-                  <div className="doctor-amount">
-                    <Link to="#" className="fav-icon">
-                      <i className="feather icon-heart" />
-                    </Link>
-                  </div>
-                  <div className="item-info">
-                    <h6>15+ Years Experience</h6>
-                  </div>
-                </div>
-                <div className="doc-content-fift">
-                  <Link to="/patient/doctor-profile">Dr. Brandon Nicholas</Link>
-                  <p>Ear-Nose-Throat (ENT) Specialist</p>
-                  <div className="rate-fifteen">
-                    <div className="rate-four">
-                      <i className="fa-regular fa-star me-2" />
-                      <span>4.8</span>
-                    </div>
-                    <ul>
-                      <li>Mo</li>
-                      <li>Tu</li>
-                      <li>We</li>
-                      <li>Th</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </OwlCarousel>
-        </div>
-      </div>
       {/* /blog section */}
       {/* Feedback */}
       {/* <section className="feedback-section-fifteen">
